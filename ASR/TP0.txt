@@ -1,0 +1,16 @@
+﻿Brentot Théo
+Moreau Winona
+GROUPE C1
+19/01/18
+
+Compte rendu du TP0
+
+
+Question 5 : 
+La commande « halt » permet de stopper la machine vituelle immédiatement mais ne ferme pas la fenêtre.  
+La commande « shutdown » ferme proprement la machine vituelle ainsi que la fenêtre.
+
+Remarques:
+
+Lorsque que l'on utilise la commande halt, la machine s'arrêt et mais la fenêtre ne se ferme pas, de plus on ne peux plus rien taper dans
+la console virtuelle.  Après l'arret de la machine virtuelle à l'aide de la commande "halt", nous voyons affiché dans la console "reboot : System halted"

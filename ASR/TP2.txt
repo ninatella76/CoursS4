@@ -1,0 +1,12 @@
+BRENTOT Théo
+MOREAU Winona
+GROUPE C1
+24/01/18
+
+Compte rendu du TP2
+
+Question 4.
+ b. il faut rajouter la ligne :
+ 			@	IN		NS		tbwm.fr.
+ c. il faut rajouter la ligne:
+ 			@	IN		A		192.168.1.2

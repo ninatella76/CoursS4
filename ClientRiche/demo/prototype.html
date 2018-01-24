@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Objets et Prototypes</title>
+	</head>
+	<body>
+		<h2>Objets et Prototypes</h2>
+		<script>
+			function Rectangle(long, larg){
+				this.largeur = larg;
+				this.longueur = long;
+			}
+			
+			Rectangle.prototype.aire = function(){
+				return this.largeur * this.longueur;
+			}
+			
+			var rect = new Rectangle(5,2);
+			document.write("Air du rectangle = " + rect.aire() + "<br/>");
+			document.write("Nom constructeur = " + Rectangle.prototype.constructor.name + "<br/>");
+			document.write("Nom contruteur depuis l'objet = " + rect.constructor.name);
+			
+			Rectangle.getPi = function(){ return 3.14159;}
+			document.write("<br/>");
+			document.write("pi = " + Rectangle.getPi() );
+			
+			
+			
+		
+		</script>
+	</body>
+</html>

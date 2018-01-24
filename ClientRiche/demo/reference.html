@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Les references</title>
+	</head>
+	<body>
+		<h2>Passage de parametres</h2>
+		
+		<script>
+			
+			function addTo(tab, val){
+				tab[0] = tab[0] + val;
+				tab[1] = tab[1] + val;
+				tab[2] = tab[2] + val;
+			}
+			var t = [1,2,3];
+			
+			document.write("Tableau initial : " + t + "<br/>");
+			
+			addTo(t,5);
+			document.write("Tableau apres addTo : " + t);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+﻿Brentot Théo
+Moreau Winona
+GROUPE C1
+19/01/18
+
+Compte rendu du TP1
+
+Question 1.
+	Notre nom de domaine est "tbwm.fr".
+	
+Question 2.
+a. Le nom de la machine est "master". Après modification du fichier /etc/hostname le nom de la machine reste "master".
+
+b. La commane "hostname" retourne bien la valeur du fichier /etc/hostname que nous avons modifié dans la question précédente.
+
+c. "hostname -d" renvoie "hostname : Name or service not known".
+
+d. Après avoir remplacé "debian" par "master.tbwm.fr". Si l'on fait "hostname -d" seul le nom de domaine s'affiche (soit "tbwm.fr") et si on tape "hostname -f" on voit s'afficher nomMachine.nomDeDomaine ("master.tbwm.fr").
+
+
+Question 3.
+
+Il nous manquait la première ligne ("order hosts,bind") que nous avons rajouté.
+1.Adresse MAC : fe80::a00:27ff:feaf:806e/64
+	Et il n'y a pas d'adresse IP.
+	
+L'adresse de rebouclage de cette machine est 127.0.0.1 et son nom est "lo" (soit loopback).
+Quand on ping  vers les adresses commencant par 127, le ping fonctionne car le masque de la carte loopback est 255.0.0.0. Et le ping vers master ne fonctionne pas car la carte eth0 n'a pas d'adresse IP.
+
+Première ligne : PING 127.0.0.1 (127.0.0.1) 56(87) bytes of data
+l'adresse juste après le PING est le nom de domaine, suivit de entre parenthèses son adresse IP et enfin le nombre de paquets envoyé à l'adresse.
+ping6 ::1 est l'adresse de ping de la loopback.
+
+
+Question 6.
+6a. 
+La carte eth0 est en mode dhcp.
+Les options sont : la nouvelle adresse souhaitée, le netmask à lui appliquer et l'adresse de la passerelle. Non les changements n'ont pas été pris en compte.
+
+6b.
+Après avoir fait la comande pour redémarrer le reseau. Nous avons effectué un ifconfig, qui nous à permis de vérifié si l'adresse IP a bien été changée. 
+
+6.c.
+Puis à la suite de la question précédente, nous avons effectué un ping vers cette adresse pour verifier si le gateway fonctionnait. Le ping vers master ne fonctionne pas. 
+
+Question 7.
+Une fois la ligne correspondant a la machine 192.168.1.10 ajoutée après les autes, le ping vers master fonctionne correctement.
+Quand on fait un ping vers master et vers master.tbwm.fr, si la ligne avec l'IP 192.168.1.10 est rajouté avant la ligne deja existante, le ping ira vers la première ligne.
+
+Question 8.
+8d. 
+On ne retrouve aucune information car le fichier /etc/hosts ne contient rien. La machine ne connait aucune autre machine qu'elle même.
+
+8e. Non, le ping master sur client20 ne marche pas car on n'a pas rajouté de ligne concernant master dans "/etc/hosts". Dans le fichier précédent il faut ajouter la ligne suivante : ajouter la ligne "192.168.1.10  master.tbwm.fr master" pour pouvoir pinger de client20 vers master.
+
+8f. Et rajouter la ligne "192.168.1.20  client20.tbwm.fr client20" dans master pour pouvoir faire un "ping client20".
+
+Question 9.
+9a. 
+Il n'y a aucune connexions actives avec serveurs sur la machine master. Les autres connexions sans serveurs ouvert correspondes à des prototype UNIX de type STREAM.
+
+b. Une fois la commande "nc -l -p 900" effectué dans master, on lance la commande "nmap master" dans client20. La commande nous indique qu'il y à 999 ports de fermés et un d'ouvert. Ensuite il affiche quel port est ouvert et le genre de protocole utilisé (ici TCP), ensuite il affiche l'état du port (OPEN/CLOSE) puis après ça il affiche l'adresse MAC. 
+En rajoutant l'option "-A" on affiche en plus des information précédentes le TRACEROUTE 
+
+c. Après avoir exécuté la commande "tcpdump" dans client20 on lance le ping de master vers client20. On observe l'écoute du ping sur client20. On remarque que client20 recoit un paquet "request" puis il renvoie un paquet "reply", qui confirme qu'il a bien reçu le paquet. 
