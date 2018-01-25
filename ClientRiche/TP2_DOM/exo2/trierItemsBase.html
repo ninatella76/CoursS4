@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> Trier les items d'une liste en modifiant le DOM </title>
+<script>
+	//le paramètre de la fonction correspond à l'identifiant de la liste à trier
+	function trierItems(id) {
+		var tenfants = new Array();
+		var noeud = document.getElementById(id); 
+		tenfants = noeud.getElementsByTagName("li");
+		
+		
+	   tenfants.sort(function(n1,n2) {
+			var s = 0;
+			var t = 1;
+			if (s<t) { return -1; }
+			else if (s>t) {return 1;}
+			else {return 0;}
+		});
+		//tenfants.sort();
+		
+		/*for(var i=0; i<tenfants.length-1; i++){
+			console.log(i + "<br/>");
+			tenfants.sort(tenfants[i], tenfants[i+1]);
+		}*/
+	}
+
+	/*
+	 * Cette partie de code ne doit pas être modifiée et sert à gérer le
+		clic sur le bouton.
+	 */
+	function clicListe() {
+		trierItems('liste1');
+	}
+
+	function initEvents() {
+		var elembouton = document.getElementById("bouton");
+		elembouton.addEventListener("click",clicListe,false);
+	}
+
+	window.addEventListener("load",initEvents,false);
+</script>
+</head>
+
+	<body>
+	<h1> Trier les items d'une liste en utilisant le DOM </h1>
+
+	<h3> Liste non tri&eacute;e </h3>
+	<ul id="liste1">
+	<li> un </li>
+	<li> deux </li>
+	<li> trois </li>
+	<li> quatre </li>
+	</ul>
+
+	<button id="bouton"> Trier la liste </button>
+
+	</body>
+</html>

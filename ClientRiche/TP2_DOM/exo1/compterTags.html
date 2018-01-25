@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script>
+		function compterTagsT(n) {
+			return n[0].childNodes.length;
+		}
+		
+		function compterTags(n){
+			var listeNoeud = n.childNodes;
+			return listeNoeud.length;
+		}
+
+	</script>
+
+</head>
+
+<body id="id">
+
+	Voici un <em> document </em> très simple.<br/>
+	<div>
+		<script>		
+			console.log("Methode 1 : " + compterTagsT(document.getElementsByTagName("body")));
+			
+			var noeud = document.getElementById("id");
+			console.log("Méthode 2 :  " + compterTags(noeud));
+		</script>
+	</div>
+
+</body>
+</html>
+

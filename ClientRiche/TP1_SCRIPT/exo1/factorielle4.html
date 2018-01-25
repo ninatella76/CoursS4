@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Calcul de factorielles</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<h2>Table de factorielles</h2>
+	<script>
+		
+		function affichage(tab) {
+			var chaine = "<table> <tr>";
+
+			for (var i=1; i<tab.length; i++){
+				chaine = chaine + "<td>" + tab[i] + "</td>";
+			}
+			chaine = chaine + "</tr>";
+			return chaine;
+
+		}
+
+		function factorielle(n){
+
+			var tableau = new Array();
+			tableau[0] = 1;
+
+			for (var i=1; i<=n; i++){
+				tableau[i] = tableau[i-1] * i;
+				// document.write(tableau[i]);
+			}
+
+			return affichage(tableau);
+		}
+
+		document.write(factorielle(10));
+
+		console.error("message d'erreur !");
+	</script>
+</body>
+</html>
+

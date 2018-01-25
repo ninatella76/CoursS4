@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Tableau Produits</title>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+
+	<body>
+		<script>
+
+			function affichage(tab){
+
+				var chaine = "<table>";
+
+				for (var i=1; i<=tab.length; i++){
+					chaine += "<tr><td class=\"produit\">produit " + i + "</td><td>" + tab[i-1].lib + "</td><td>" + tab[i-1].coul + "</td><td>" + tab[i-1].qs +"</td></tr>";
+				}
+
+				chaine += "</table>";
+
+				return chaine;
+			}
+
+			var prod1 = new Object();
+			var prod2 = new Object();
+			var prod3 = new Object();
+
+			prod1.lib  = "gomme";
+			prod1.coul = "blanc";
+			prod1.qs   = "500"  ;
+
+			prod2.lib  = "crayon";
+			prod2.coul = "bleu";
+			prod2.qs   = "1000"  ;
+
+			prod3.lib  = "cahier";
+			prod3.coul = "rouge";
+			prod3.qs   = "200"  ;
+
+			var tableau = [prod1, prod2, prod3];
+			document.write(affichage(tableau));
+		</script>
+	</body>
+</html>
